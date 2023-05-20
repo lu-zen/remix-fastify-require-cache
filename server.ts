@@ -1,4 +1,4 @@
-import { purgeRequireCache, remixFastifyPlugin } from "@mcansh/remix-fastify";
+import { remixFastifyPlugin } from "@mcansh/remix-fastify";
 import { broadcastDevReady } from "@remix-run/server-runtime";
 import chokidar from "chokidar";
 import fastify from "fastify";
@@ -42,7 +42,6 @@ if (MODE === "development") {
   );
 
   watcher.on("all", () => {
-    purgeRequireCache(path.dirname(BUILD_FILE_PATH));
     notifyRemixServerIsReady();
   });
 }
